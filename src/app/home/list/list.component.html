@@ -1,0 +1,16 @@
+<div class="card-container">
+  <mat-card *ngFor="let result of a" class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{result.country}}</mat-card-title>
+        <mat-card-subtitle>{{result.capital_city}}</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- Itt jelenítheted meg a többi adatot -->
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Bővebben...</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

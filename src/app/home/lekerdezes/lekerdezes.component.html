@@ -1,0 +1,39 @@
+<div class="lekérdezés">
+
+  <div class="ismertető">
+
+    <h2>A digitális Covid-19 információ lekérdező web-app használata:</h2>
+    <p>1:Válassz országot</p>
+
+  </div>
+
+  <form [formGroup]="newSearch" (ngSubmit)="search()" class="form">
+
+    <mat-tab-group>
+      <mat-tab label="Országok listája:">
+        <mat-form-field appearance="outline">
+          <mat-label>Országok</mat-label>
+          <mat-select formControlName="country" required>
+            @for (country of countries; track country) {
+            <mat-option [value]="country.value">{{country.viewValue}}</mat-option>
+            }
+          </mat-select>
+          @if (newSearch.hasError('required')) {
+          <mat-error>Please choose an animal</mat-error>
+          }
+        </mat-form-field>
+      </mat-tab>
+    </mat-tab-group>
+
+    <mat-card-actions>
+      <button type="submit" mat-raised-button color="primary" [disabled]="newSearch.invalid || this.lekerdezesService.isLoading()">
+      @if (this.lekerdezesService.isLoading()){
+          <mat-spinner color="primary" [diameter]="20" />
+      }@else {
+        Lekérdezés
+      }</button>
+    </mat-card-actions>
+
+  </form>
+
+</div>

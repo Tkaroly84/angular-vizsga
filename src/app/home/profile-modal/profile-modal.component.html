@@ -1,0 +1,18 @@
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{loggedInUser}}</mat-card-title>
+      <mat-card-subtitle>Regisztrált felhasználó</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Név: {{loggedInUser}}</p>
+      <p>E-mail cím: </p>
+      <p>Jelszó: </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="deleteProfile()">Profil Törlése</button>
+      <button mat-raised-button (click)="logout()">Kijelentkezés</button>
+    </mat-card-actions>
+
+  </mat-card>

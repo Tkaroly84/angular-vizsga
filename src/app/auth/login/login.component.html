@@ -1,0 +1,47 @@
+<div class="login-background">
+
+    <form #form="ngForm">
+        <mat-card>
+            <img src="/assets/images/login.png" alt="login-picture">
+            <mat-card-header>
+                <mat-card-title>Bejelentkezés</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div class="login-form">
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input type="text" name="username" #username="ngModel" matInput [(ngModel)]="user.username"
+                            required>
+                        @if(username.errors?.['required']){
+                        <mat-error>A felhasználónév megadása kötelező!</mat-error>
+                        }
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" name="password" #password="ngModel" matInput [(ngModel)]="user.password"
+                            required>
+                        @if(password.errors?.['required']){
+                        <mat-error>A jelszó megadása kötelező!</mat-error>
+                        }
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <div class="button">
+
+                <mat-card-actions>
+                    <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid"
+                        (click)="login()">Bejelentkezés</button>
+                        <button mat-raised-button color="warn" [routerLink]="('/registration')">Regisztáció</button>
+                </mat-card-actions>
+                
+            </div>
+            <button mat-raised-button style="margin: auto;" [routerLink]="('')">Vissza a főoldalra</button>
+
+        </mat-card>
+    </form>
+
+</div>

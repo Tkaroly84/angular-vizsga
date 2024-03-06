@@ -1,0 +1,26 @@
+.nav {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    background-color: beige;
+    h3 {
+        margin: 0;
+        margin-right: 25px;
+      }
+      div{
+        display: flex;    
+        cursor:pointer;
+        margin-right: 10px;
+        margin-top: 1rem;
+
+      }
+      app-nevnap{
+        cursor:pointer;
+        margin-left: 10px;
+        margin-top: 0.5rem;
+      }
+
+
+}

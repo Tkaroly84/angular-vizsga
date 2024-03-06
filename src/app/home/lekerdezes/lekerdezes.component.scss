@@ -1,0 +1,39 @@
+.lekérdezés {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+
+    .ismertető {
+        width: 50%;
+        background-color: rgb(244, 106, 8);
+        box-shadow: 3px 2px 6px 6px rgb(148, 146, 146);
+        border-radius: 10px;
+    }
+
+    .form {
+        height: fit-content;
+        background-color: azure;
+        box-shadow: 3px 2px 6px 6px rgb(148, 146, 146);
+        border-radius: 10px;
+        width: fit-content;
+
+        mat-form-field {
+            padding: 10px;
+        }
+
+        mat-tab-group {
+            align-items: center;
+            width: 80%;
+            margin: auto;
+        }
+
+        mat-card-actions {
+            button {
+                margin: auto;
+            }
+        }
+    }
+}

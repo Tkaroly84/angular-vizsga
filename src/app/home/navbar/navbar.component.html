@@ -1,0 +1,11 @@
+<div class="nav">
+
+    <app-nevnap  [showInNavbar]="true"[routerLink]="('/nevnap')"/>
+
+    <h3>Üdvözöllek <span style="font-size: medium; font-weight: bold;">{{loggedInUser}}</span></h3>
+    <div (click)="openProfile()">
+        <mat-icon>account_circle <span>Profilom</span></mat-icon>
+        <p>Profilom</p>
+    </div>
+
+</div>

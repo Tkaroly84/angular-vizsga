@@ -1,0 +1,62 @@
+//navbarban:
+span {
+    color: red;
+    font-weight: bold;
+}
+
+//nevnap komponensben:
+
+.nevnapKereso {
+    display: flex;
+    justify-content: space-around;
+}
+
+.example-card {
+    margin-top: 20px;
+    width: 30%;
+    align-items: center;
+    text-align: center;
+    box-shadow: 2px 1px 2px 2px rgb(148, 146, 146);
+
+    img {
+        width: 100%;
+    }
+
+    mat-card-content {
+        margin-top: 15px;
+    }
+}
+
+.form-div{
+    width: 30%;
+    .example-card2 {
+        width: 300px;    margin: auto;
+            margin-top: 20px;
+            align-items: center;
+            text-align: center;
+            box-shadow: 2px 1px 2px 2px rgb(148, 146, 146);
+        
+            mat-form-field {
+                text-align: center;
+                align-items: center;
+            }
+        }
+        .searchDateName {
+            margin: auto;
+            margin-top: 20px;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            display: block;
+            box-shadow: 2px 1px 2px 2px rgb(148, 146, 146);
+            h3 {
+                font-weight: bold;
+            }
+        }
+
+}
+#vissza {
+    margin-left: 50%;
+    margin-top: 25px;
+
+}

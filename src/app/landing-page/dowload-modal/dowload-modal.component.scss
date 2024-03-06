@@ -1,0 +1,34 @@
+mat-dialog-actions{
+    justify-content: space-between;
+}
+mat-form-field{
+    margin: auto;
+    width: 50%;
+}
+.imageList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    .kepraktar{
+        display: flex;
+        flex-wrap: wrap;
+        width: 10%;
+        background-color: aqua;
+    }
+}
+img:hover{
+    cursor: pointer;
+    transition: filter 0.3s ease;
+    filter: brightness(50%);
+}
+mat-dialog-actions{
+    justify-content: space-evenly;
+}
+.documentList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    a{
+        padding-bottom: 25px;
+    }
+}

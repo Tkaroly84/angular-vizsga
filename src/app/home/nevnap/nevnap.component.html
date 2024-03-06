@@ -1,0 +1,75 @@
+<div *ngIf="showInNavbar">
+    <h3>Mai névnapok: <span>{{ nameDays }}</span></h3>
+</div>
+
+<div *ngIf="!showInNavbar" class="nevnapKereso">
+
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Ha kíváncsi vagy mikor van a kedvesed, vagy a főnököd névnapja, itt könnyen
+                kikeresheted!</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="/assets/images/meglepetes.jpg" alt="meglepetes">
+        <mat-card-content>
+            <p>
+                Nincs más dolgod, csak írd be a nevét a megfelelő vonalra, vagy válaszd ki a naptárból a dátumot!
+            </p>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- form és a 2 komponens-->
+
+    <div class="form-div">
+        <mat-card class="example-card2">
+            <form [formGroup]="newSearch" (ngSubmit)="searchDate(); searchName()">
+                <mat-card-content>
+                    <h3>Válassz Dátumot:</h3>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nyomd meg a gombot =></mat-label>
+                        <input matInput [matDatepicker]="dp3" formControlName="searchDate">
+                        <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+                        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+                    </mat-form-field>
+                </mat-card-content>
+
+                <mat-card-content class="also">
+                    <h3>Írd be a nevét:</h3>
+                    <div class="example-form">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Írd be a nevet:</mat-label>
+                            <input matInput formControlName="searchName">
+                        </mat-form-field>
+                    </div>
+                    <button type="submit" mat-fab extended color="accent"
+                        [disabled]="!newSearch.value.searchDate && !newSearch.value.searchName">
+                        <mat-icon>search</mat-icon>Keresés
+                    </button>
+                    <button mat-fab extended color="primary" (click)="newSearchNull()"
+                        [disabled]="!newSearch.value.searchDate && !newSearch.value.searchName">
+                        <mat-icon>delete</mat-icon>Reset
+                    </button>
+
+                </mat-card-content>
+            </form>
+        </mat-card>
+
+        <!-- a 2 keresés komponens         -->
+        <div class="searchDateName" *ngIf="!showInNavbar && searchDateName.length > 0">
+            <h3>A dátum szerinti keresés eredményei:<br>
+                <span>{{ searchDateName }}</span>
+            </h3>
+        </div>
+
+        <div class="searchDateName" *ngIf="!showInNavbar && kikeresettnevnapok.length > 0">
+            <h3>A név szerinti keresés eredményei: <br>
+                <span>{{ kikeresettnevnapok }}</span>
+                <p>(Az első számsor a hónapot jelöli, a második pedig a napot pl: 03-01=Március 1)</p>
+            </h3>
+        </div>
+    </div>
+</div>
+
+
+
+<button *ngIf="!showInNavbar" id="vissza" style="margin-right: 20px;" mat-raised-button color="primary"
+    [routerLink]="('/home')">Vissza</button>
