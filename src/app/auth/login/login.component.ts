@@ -40,14 +40,14 @@ export class LoginComponent {
   ) { }
 
   login() {
-    this.isLoading.set(true);
 
     if (this.authService.login(this.user.username, this.user.password)) {
       this.authService.setLoggedInUser(this.user.username);
+    } else {
       this.snackBar.open('Helytelen felhasználónév vagy jelszó!', 'Ok', {
-        duration: 5000, 
+        duration: 5000,
       });
-      this.isLoading.set(false);
     }
+
   }
 }
