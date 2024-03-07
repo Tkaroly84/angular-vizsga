@@ -44,10 +44,8 @@ export class RegistrationComponent {
       this.isLoading.set(false);
       return;
     }else{
-      // Betöltés az összes felhasználó adataiból
     const storedUsers: any[] = JSON.parse(localStorage.getItem('allUsers') || '[]');
 
-     // Ellenőrzés, hogy már regisztrált-e az adott e-mail címmel
   const isEmailRegistered = storedUsers.some(user => user.email === this.newUser.value.email);
 
   if (isEmailRegistered) {
@@ -57,17 +55,14 @@ export class RegistrationComponent {
     return;
   }
   
-    // Új felhasználó adatai
     const newUser = {
       username: this.newUser.value.username,
       email: this.newUser.value.email,
       password: this.newUser.value.password
     };
   
-    // Hozzáadás az eddigi felhasználókhoz
     storedUsers.push(newUser);
   
-    // Az összes felhasználó mentése a localStorage-ba
     this.saveAllUsers(storedUsers);
   
     finalize(() => this.isLoading.set(false));

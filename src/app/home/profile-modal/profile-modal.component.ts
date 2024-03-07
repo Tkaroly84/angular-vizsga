@@ -14,7 +14,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
   styleUrl: './profile-modal.component.scss'
 })
 export class ProfileModalComponent {
-  @Input() loggedInUser: string = '';  // Bejelentkezett felhasználó neve
+  @Input() loggedInUser: string = '';
   snackbar: any;
 
 

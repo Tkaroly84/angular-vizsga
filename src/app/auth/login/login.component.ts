@@ -32,7 +32,7 @@ export class LoginComponent {
   };
 
   isLoading = signal(false);
-  loggedInUser: string = '';  // Bejelentkezett felhasználó neve
+  loggedInUser: string = ''; 
 
   constructor(
     private readonly snackBar: MatSnackBar,
@@ -43,9 +43,7 @@ export class LoginComponent {
     this.isLoading.set(true);
 
     if (this.authService.login(this.user.username, this.user.password)) {
-      this.authService.setLoggedInUser(this.user.username); // Bejelentkezett felhasználó nevének beállítása az AuthService-ban
-      // Sikeres bejelentkezés, a navigáció már az AuthService-ben történik
-    } else {
+      this.authService.setLoggedInUser(this.user.username);
       this.snackBar.open('Helytelen felhasználónév vagy jelszó!', 'Ok', {
         duration: 5000, 
       });

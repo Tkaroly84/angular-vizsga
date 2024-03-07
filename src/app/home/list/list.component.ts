@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { LekerdezesService } from '../lekerdezes.service';
@@ -14,6 +14,7 @@ import { MatButton, MatButtonModule } from '@angular/material/button';
 })
 export class ListComponent {
   a: any[] = [];
+  
   constructor(
     private readonly lekerdezesService:LekerdezesService
   ){}

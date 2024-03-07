@@ -31,11 +31,14 @@
         margin-top: 80px;
     }
     .text{
-        width: 30%;
+        //background: linear-gradient(to right, #ff00cc, #00ccff);
+        //-webkit-background-clip: text;
+        color: white; 
+               width: 30%;
         text-align: center;
         margin-left: 50px;
-        p{
-            color: rgb(252, 252, 251);
+        .text p {
+            color: white;
         }
     }
     }

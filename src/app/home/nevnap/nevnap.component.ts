@@ -12,7 +12,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -25,8 +25,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class NevnapComponent implements OnInit {
 
-  @Input() showInNavbar = false;  // Változó, amely meghatározza, hogy látszik-e a navbar-ban
-
+  @Input() showInNavbar = false; 
   nameDays: string[] = [];
   selectedDate: string = '';
   searchDateName: string = '';
@@ -71,7 +70,6 @@ export class NevnapComponent implements OnInit {
   searchDate(): void {
     const searchDate = this.newSearch.value.searchDate;
 
-    // Átalakítjuk a dátumot az API által elvárt formátumra (MM-dd)
     const formattedDate = this.datePipe.transform(searchDate, 'MM-dd');
     console.log('formázott dátum:', formattedDate)
 
@@ -80,7 +78,6 @@ export class NevnapComponent implements OnInit {
 
       this.http.get<any>(apiUrl).subscribe(
         data => {
-          // Ellenőrizzük, hogy az adatstruktúra tartalmazza-e a várt információkat
           if (data && data[formattedDate]) {
             const selectedNameDays = data[formattedDate];
             this.searchDateName = selectedNameDays.join(', ');
@@ -106,9 +103,7 @@ export class NevnapComponent implements OnInit {
 
       this.http.get<any>(apiUrlSearchName).subscribe(
         data => {
-          console.log('API válasz:', data); // Minden API választ kiírunk, beleértve az üres választ is
-
-          // Ellenőrizzük, hogy az adatstruktúra tartalmazza-e a várt információkat
+          console.log('API válasz:', data);
           if (data && data[searchName]) {
             const nameDayDate = data[searchName];
             this.kikeresettnevnapok = nameDayDate.join(', ');

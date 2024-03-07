@@ -10,56 +10,44 @@ import { MatSelectModule } from '@angular/material/select';
 @Component({
   selector: 'app-dowload-modal',
   standalone: true,
-  imports: [FormsModule,MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule, CommonModule,MatFormFieldModule, MatInputModule, MatSelectModule],
+  imports: [FormsModule, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule, CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule],
   templateUrl: './dowload-modal.component.html',
   styleUrl: './dowload-modal.component.scss'
 })
 export class DowloadModalComponent {
 
-  title='képek'
+  title = 'képek'
 
-  selectedFileType='';
-  imageList: string[] = ['1000_F_119115529_mEnw3lGpLdlDkfLgRcVSbFRuVl6sMDty.jpg', 'IMG_4783.JPG', 'IMG_4784.JPG','IMG_4786.JPG','IMG_4787.JPG','letöltés.jpg','login_295128.png','login-picture.jpg','login.png','meglepetes.jpg','symptoms-covid-19.png','Download-Icon.jpg'];
-  //docksList:string[]=['Letöltés teszt.txt']
-// A docksList most egy olyan tömb, amely objektumokat tartalmaz a name és filename tulajdonságokkal
-docksList: { name: string, filename: string }[] = [
-  { name: 'Letöltés teszt 1', filename: 'teszt1.txt' },
-  { name: 'Letöltés teszt 2', filename: 'teszt2.txt' },
-  { name: 'Letöltés teszt 3', filename: 'teszt3.txt' }
-];
+  selectedFileType = '';
+  imageList: string[] = ['1000_F_119115529_mEnw3lGpLdlDkfLgRcVSbFRuVl6sMDty.jpg', 'IMG_4783.JPG', 'IMG_4784.JPG', 'IMG_4786.JPG', 'IMG_4787.JPG', 'letöltés.jpg', 'login_295128.png', 'login-picture.jpg', 'login.png', 'meglepetes.jpg', 'symptoms-covid-19.png', 'Download-Icon.jpg'];
+  docksList: { name: string, filename: string }[] = [
+    { name: 'Letöltés teszt 1', filename: 'teszt1.txt' },
+    { name: 'Letöltés teszt 2', filename: 'teszt2.txt' },
+    { name: 'Letöltés teszt 3', filename: 'teszt3.txt' }
+  ];
 
-download() {
-  // Használjuk az ngModelt a kiválasztott fájltípus meghatározásához
-  const fileType = this.selectedFileType;
+  download() {
 
-  // Ellenőrizzük, hogy a kiválasztott fájltípus 'documents'-e
-  if (this.selectedFileType === 'documents') {
-      // Készítsünk egy linket a fájlhoz
+    if (this.selectedFileType === 'documents') {
       const link = document.createElement('a');
       link.href = `assets/documents/${this.docksList[0].filename}`;
       link.download = this.docksList[0].filename;
 
-      // Adjuk hozzá a linket az oldalhoz és indítsuk el a letöltést
       document.body.appendChild(link);
       link.click();
 
-      // Távolítsuk el a linket
       document.body.removeChild(link);
-  } else {
-      // Egyéb típusokra vonatkozó logika itt...
+    } else {
+    }
   }
-}
   downloadImage(image: string) {
-    // Készítsünk egy linket az adott képhez
     const link = document.createElement('a');
     link.href = `assets/images/${image}`;
     link.download = image;
-    
-    // Adjuk hozzá a linket az oldalhoz és indítsuk el a letöltést
+
     document.body.appendChild(link);
     link.click();
 
-    // Távolítsuk el a linket
     document.body.removeChild(link);
   }
 }

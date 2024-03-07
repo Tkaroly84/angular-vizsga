@@ -18,7 +18,7 @@ import { RouterLink } from '@angular/router';
 })
 export class NavbarComponent {
 
-  @Input() loggedInUser: string = '';  // Bejelentkezett felhasználó neve
+  @Input() loggedInUser: string = '';
   
   constructor(
     private authService: AuthService,

@@ -14,36 +14,30 @@ export class AuthService {
 
   constructor(private router: Router) { }
 
-  // Ellenőrzi, hogy a felhasználó regisztrált-e
   private isAuthenticated(username: string, password: string): boolean {
     const storedUsers: any[] = JSON.parse(localStorage.getItem('allUsers') || '[]');
     return storedUsers.some(user => user.username === username && user.password === password);
   }
 
-  // Bejelentkezési folyamat
   login(username: string, password: string): boolean {
     if (this.isAuthenticated(username, password)) {
       this.loggedInUserSubject.next(username);
-      // Sikeres bejelentkezés, navigáljunk a főoldalra (vagy a kívánt oldalra)
-      this.router.navigate(['/home']); // itt az '/home' helyett a céles oldal útvonalát adjuk meg
+      this.router.navigate(['/home']);
       return true;
     } else {
-      // Sikertelen bejelentkezés, jelenítsünk meg hibaüzenetet
       console.log('Sikertelen bejelentkezés');
       return false;
     }
   }
 
-  // Felhasználó beállítása
   setLoggedInUser(username: string): void {
     this.loggedInUserSubject.next(username);
   }
 
   logout(): void {
-    this.loggedInUserSubject.next(''); // Bejelentkezett felhasználó törlése
+    this.loggedInUserSubject.next('');
   }
 
-  // Felhasználó profiljának törlése localstorage-ból
   deleteProfile(): void {
     const storedUsers: any[] = JSON.parse(localStorage.getItem('allUsers') || '[]');
     const updatedUsers = storedUsers.filter(user => user.username !== this.loggedInUserSubject.value);
