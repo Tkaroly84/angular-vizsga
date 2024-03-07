@@ -46,7 +46,9 @@ export class LoginComponent {
       this.authService.setLoggedInUser(this.user.username); // Bejelentkezett felhasználó nevének beállítása az AuthService-ban
       // Sikeres bejelentkezés, a navigáció már az AuthService-ben történik
     } else {
-      this.snackBar.open('Helytelen felhasználónév vagy jelszó!', 'Ok');
+      this.snackBar.open('Helytelen felhasználónév vagy jelszó!', 'Ok', {
+        duration: 5000, 
+      });
       this.isLoading.set(false);
     }
   }

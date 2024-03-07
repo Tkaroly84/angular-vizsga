@@ -1,8 +1,13 @@
 //navbarban:
-span {
-    color: red;
-    font-weight: bold;
+.navbar{
+    display: flex;
+    span {
+        margin-right: 5px;
+        color: red;
+        font-weight: bold;
+    }
 }
+
 
 //nevnap komponensben:
 

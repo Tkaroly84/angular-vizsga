@@ -6,11 +6,22 @@
         <mat-card-subtitle>{{result.capital_city}}</mat-card-subtitle>
       </mat-card-title-group>
     </mat-card-header>
-    <mat-card-content>
-      <!-- Itt jelenítheted meg a többi adatot -->
+    <mat-card-content *ngIf="result.showDetails">
+      <p>Confirmed: {{result.confirmed}}</p>
+      <p>Confirmed: {{result.recovered}}</p>
+      <p>Confirmed: {{result.deaths}}</p>
+      <p>Confirmed: {{result.sq_km_area}}</p>
+      <p>Confirmed: {{result.life_expectancy}}</p>
+      <p>Confirmed: {{result.elevation_in_meters}}</p>
+      <p>Confirmed: {{result.abbreviation}}</p>
+      <p>Confirmed: {{result.location}}</p>
+      <p>Confirmed: {{result.iso}}</p>
+      <p>Confirmed: {{result.lat}}</p>
+      <p>Confirmed: {{result.long}}</p>
+      <p>Confirmed: {{result.updated}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>Bővebben...</button>
-    </mat-card-actions>
+      <button mat-button (click)="showDetails(result)" *ngIf="!result.showDetails">Bővebben...</button>
+      <button mat-button (click)="dontShowDetails(result)" *ngIf="result.showDetails">Kevesebb..</button>    </mat-card-actions>
   </mat-card>
 </div>

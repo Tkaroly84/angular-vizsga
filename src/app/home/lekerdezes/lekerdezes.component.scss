@@ -1,4 +1,19 @@
-.lekérdezés {
+
+.example-card {
+    margin-top: 20px;
+    width: 20%;
+    align-items: center;
+    text-align: center;
+    box-shadow: 2px 1px 2px 2px rgb(148, 146, 146);
+
+    img {
+        width: 100%;
+    }
+
+    mat-card-content {
+        margin-top: 15px;
+    }
+}.lekérdezés {
     display: flex;
     justify-content: space-around;
     margin: auto;
@@ -18,7 +33,7 @@
         background-color: azure;
         box-shadow: 3px 2px 6px 6px rgb(148, 146, 146);
         border-radius: 10px;
-        width: fit-content;
+        width: 20%;
 
         mat-form-field {
             padding: 10px;

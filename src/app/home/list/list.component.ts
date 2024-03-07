@@ -24,4 +24,11 @@ export class ListComponent {
         this.a.push(data);      });
     });
   }
+  showDetails(result: any) {
+    result.showDetails = true;
+  }
+
+  dontShowDetails(result: any) {
+    result.showDetails = false;
+  }
 }

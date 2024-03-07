@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { LekerdezesService } from '../lekerdezes.service';
+import { RouterLink } from '@angular/router';
 
 
 
@@ -16,7 +17,7 @@ import { LekerdezesService } from '../lekerdezes.service';
 @Component({
   selector: 'app-lekerdezes',
   standalone: true,
-  imports: [MatProgressSpinner, MatTabsModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatCardModule, MatButtonModule, ReactiveFormsModule],
+  imports: [MatProgressSpinner, MatTabsModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatCardModule, MatButtonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './lekerdezes.component.html',
   styleUrl: './lekerdezes.component.scss',
 })
@@ -35,8 +36,6 @@ export class LekerdezesComponent {
     country: new FormControl<string>('', [Validators.required]),
   })
 
-  //isLoading = signal(false)
-
   constructor(
     protected readonly lekerdezesService: LekerdezesService
   ) { }
@@ -48,8 +47,5 @@ export class LekerdezesComponent {
     this.lekerdezesService.search(valasztottOrszag);
     
     this.newSearch.reset()
-    //this.isLoading = signal(false)
-
-
   }
 }
