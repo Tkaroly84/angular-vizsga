@@ -1,9 +1,10 @@
-.landing2{
+.landing2 {
     width: 100%;
     height: 100%;
     background-image: url('/assets/images/IMG_4786.JPG');
     background-size: cover;
-    nav{
+
+    nav {
         margin: auto;
         width: 100%;
         display: flex;
@@ -11,35 +12,58 @@
         justify-content: space-evenly;
         color: aliceblue;
         background-color: transparent;
+
         p {
             margin-top: 10px;
             font-size: 15px;
             text-decoration: underline;
-          } 
-          a{
+        }
+
+        a {
             color: white;
             margin-top: 10px;
             font-size: 15px;
         }
     }
 
-    .container{
+    .container {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 100%;
         margin-top: 80px;
-    }
-    .text{
-        //background: linear-gradient(to right, #ff00cc, #00ccff);
-        //-webkit-background-clip: text;
-        color: white; 
-               width: 30%;
-        text-align: center;
-        margin-left: 50px;
-        .text p {
+        .text {
+            //background: linear-gradient(to right, #ff00cc, #00ccff);
+            //-webkit-background-clip: text;
+             color: white;
+            width: 30%;
+            text-align: center;
+            margin-left: 50px;
+          }
+          
+          .text p {
             color: white;
+          }
+        /*#carouselExampleSlidesOnly {
+            width: 50%;
+        }*/
+        .demo-lekerdezes{
+            padding: 10px;
+            width: 60%;
+            border-radius: 15px;
+            box-shadow: 3px 2px 6px 6px rgb(223, 221, 221);
+
         }
-    }
+        .demo-lekerdezes-leiras{
+            text-align: center;
+            color: white;
+            width: 60%;
+        }
+          
     }
 
+
+
+
+
+}

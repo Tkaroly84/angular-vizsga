@@ -1,26 +1,63 @@
 <body class="landing2">
-    <nav>
-        <p style="cursor: pointer;" (click)="openDialog()">Web-appon használt képek letöltése</p>
-        <a href="https://hu.wikipedia.org/wiki/Covid19">Covid-19-ről általánosságban</a>
-        <a style="color: white;" routerLink="/login">Belépés</a>
-        <a style="color: white;" routerLink="/registration">Regisztráció</a>
-    </nav>
+  <nav>
+    <p style="cursor: pointer;" (click)="openDialog()">Web-appon használt képek letöltése</p>
+    <a href="https://hu.wikipedia.org/wiki/Covid19">Covid-19-ről általánosságban</a>
+    <a style="color: white;" routerLink="/login">Belépés</a>
+    <a style="color: white;" routerLink="/registration">Regisztráció</a>
+  </nav>
 
-    <div class="container">
+  <div class="container">
 
-        <div class="text">
-            <p style="font-size: 25px;">Mi az a COVID-19?</p><br>
-            <p>A COVID-19 a súlyos akut légúti szindróma coronavirus-2 (SARS-CoV-2) vírus által okozott betegség . A
-                SARS-CoV-2 a koronavírus új törzse. Emberben 2019 decembere előtt nem azonosították.
-    
-                A jelenlegi COVID-19 járvány 2019 végén kezdődött, és 2020. március 11-én az Egészségügyi Világszervezet
-                (WHO)(a link külső)világjárványnak nyilvánította .
-    
-                2023. május 4-én a WHO főigazgatója megállapította, hogy a COVID-19 már nem számít nemzetközi jelentőségű
-                közegészségügyi vészhelyzetnek.(a link külső). Kiemelte, hogy bár magasabb a lakossági immunitás szintje, és
-                kevesebb a kórházi kezelés és a halálozás, továbbra is bizonytalanok vannak a SARS-CoV-2 fejlődésével
-                kapcsolatban. <br><br><p style="font-size: 10px;">Forrás:Wikipédia</p>
-            </p>
-        </div>
+    <div class="text">
+      <p style="font-size: 25px;">Mi az a COVID-19?</p><br>
+      <p>A COVID-19 a súlyos akut légúti szindróma coronavirus-2 (SARS-CoV-2) vírus által okozott betegség . A
+        SARS-CoV-2 a koronavírus új törzse. Emberben 2019 decembere előtt nem azonosították.
+
+        A jelenlegi COVID-19 járvány 2019 végén kezdődött, és 2020. március 11-én az Egészségügyi Világszervezet
+        (WHO)(a link külső)világjárványnak nyilvánította .
+
+        2023. május 4-én a WHO főigazgatója megállapította, hogy a COVID-19 már nem számít nemzetközi jelentőségű
+        közegészségügyi vészhelyzetnek.(a link külső). Kiemelte, hogy bár magasabb a lakossági immunitás szintje, és
+        kevesebb a kórházi kezelés és a halálozás, továbbra is bizonytalanok vannak a SARS-CoV-2 fejlődésével
+        kapcsolatban. <br><br>
+      <p style="font-size: 10px;">Forrás:Wikipédia</p>
     </div>
+
+    <div class="demo-lekerdezes">
+
+      <div style="display: flex;">
+
+        <app-demo-lekerdezes />
+
+        <div class="demo-lekerdezes-leiras">
+          <p>Ez egy demo lekérdezési applikáció. <br>
+            Jelenleg csak 3 lekérdezést tud végezni. <br> A lekérdezhető országok listája nem teljes, a tényleges tartalmat
+            belépés után tudja használatba venni.</p>
+        </div>
+  
+      </div>
+      <div class="demo-list">
+        <app-list-demo />
+      </div>
+    </div>
+
+    <!--     Carousel                           
+            
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="/assets/images/IMG_4787.JPG" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="/assets/images/IMG_4783.JPG" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="/assets/images/IMG_4784.JPG" alt="Third slide">
+              </div>
+            </div>
+          </div>-->
+
+  </div>
+
+
 </body>

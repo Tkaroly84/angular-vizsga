@@ -4,11 +4,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { DowloadModalComponent } from '../dowload-modal/dowload-modal.component';
+import { DemoLekerdezesComponent } from '../demo-lekerdezes/demo-lekerdezes.component';
+import { ListDemoComponent } from '../list-demo/list-demo.component';
 
 @Component({
   selector: 'app-landing2',
   standalone: true,
-  imports: [RouterLink, CommonModule,MatIconModule],
+  imports: [RouterLink, CommonModule,MatIconModule, DemoLekerdezesComponent, ListDemoComponent],
   templateUrl: './landing2.component.html',
   styleUrl: './landing2.component.scss'
 })
