@@ -4,7 +4,10 @@
     align-items: center;
     text-align: center;
     justify-content: space-between;
-    background-color: beige;
+    background-color: transparent;
+    box-shadow: 2px 1px 2px 2px rgb(148, 146, 146);
+    border-radius: 10px;
+
     h3 {
         margin: 0;
         margin-right: 25px;

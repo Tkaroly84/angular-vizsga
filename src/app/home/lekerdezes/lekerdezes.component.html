@@ -1,56 +1,60 @@
 <div class="lekérdezés">
 
-  <mat-card [routerLink]="('/nevnap')" class="example-card" >
-    <mat-card-header>
+    <mat-card [routerLink]="('/nevnap')" class="example-card">
+      <mat-card-header>
         <mat-card-title>Ha kíváncsi vagy mikor van a kedvesed, vagy a főnököd névnapja, itt könnyen
-            kikeresheted!</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="/assets/images/meglepetes.jpg" alt="meglepetes">
-    <mat-card-content>
+          kikeresheted!</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="/assets/images/meglepetes.jpg" alt="meglepetes">
+      <mat-card-content>
         <p>
-            Kattints a képre a bővebb kereséshez!
+          Kattints a képre a bővebb kereséshez!
         </p>
-    </mat-card-content>
-</mat-card>
+      </mat-card-content>
+    </mat-card>
 
-  <div class="ismertető">
+    <div class="image"></div>
 
-    <h2>A digitális Covid-19 információ lekérdező web-app használata:</h2>
-    <p>1: Válasszon országot</p>
-    <p>2: Jelenleg egy egyszerűsített statisztikát lehet látni.</p>
-    <p>3: A "Bővebben" gombra kattintva, láthatja az adott ország teljes statisztikáját</p>
+  <div class="jobb_oldal">
+    <div class="ismertető">
 
+      <h2>A digitális Covid-19 információ lekérdező web-app használata:</h2>
+      <p>1: Válasszon országot.</p>
+      <p>2: Jelenleg egy egyszerűsített adatlistát lehet látni.</p>
+      <p>3: A "Bővebben" gombra kattintva, láthatja az adott ország teljes statisztikáját.</p>
 
+    </div>
+
+    <form [formGroup]="newSearch" (ngSubmit)="search()" class="form">
+
+      <mat-tab-group>
+        <mat-tab label="Országok listája:">
+          <mat-form-field appearance="outline">
+            <mat-label>Országok</mat-label>
+            <mat-select formControlName="country" required>
+              @for (country of countries; track country) {
+              <mat-option [value]="country.value">{{country.viewValue}}</mat-option>
+              }
+            </mat-select>
+            @if (newSearch.hasError('required')) {
+            <mat-error>Please choose an animal</mat-error>
+            }
+          </mat-form-field>
+        </mat-tab>
+      </mat-tab-group>
+
+      <mat-card-actions>
+        <button type="submit" mat-raised-button color="primary"
+          [disabled]="newSearch.invalid || this.lekerdezesService.isLoading()">
+          @if (this.lekerdezesService.isLoading()){
+          <mat-spinner color="primary" [diameter]="20" />
+          }@else {
+          Lekérdezés
+          }</button>
+      </mat-card-actions>
+
+    </form>
 
   </div>
-
-  <form [formGroup]="newSearch" (ngSubmit)="search()" class="form">
-
-    <mat-tab-group>
-      <mat-tab label="Országok listája:">
-        <mat-form-field appearance="outline">
-          <mat-label>Országok</mat-label>
-          <mat-select formControlName="country" required>
-            @for (country of countries; track country) {
-            <mat-option [value]="country.value">{{country.viewValue}}</mat-option>
-            }
-          </mat-select>
-          @if (newSearch.hasError('required')) {
-          <mat-error>Please choose an animal</mat-error>
-          }
-        </mat-form-field>
-      </mat-tab>
-    </mat-tab-group>
-
-    <mat-card-actions>
-      <button type="submit" mat-raised-button color="primary" [disabled]="newSearch.invalid || this.lekerdezesService.isLoading()">
-      @if (this.lekerdezesService.isLoading()){
-          <mat-spinner color="primary" [diameter]="20" />
-      }@else {
-        Lekérdezés
-      }</button>
-    </mat-card-actions>
-
-  </form>
 
 </div>
