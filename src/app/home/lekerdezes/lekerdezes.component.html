@@ -22,6 +22,10 @@
       <p>1: Válasszon országot.</p>
       <p>2: Jelenleg egy egyszerűsített adatlistát lehet látni.</p>
       <p>3: A "Bővebben" gombra kattintva, láthatja az adott ország teljes statisztikáját.</p>
+
+      <button type="button" class="btn btn-primary" (click)="openDialog()">
+        Letöltések:
+      </button>
     </div>
 
     <form [formGroup]="newSearch" (ngSubmit)="search()" class="form">
@@ -56,4 +60,31 @@
 
   </div>
 
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Válasszon a file-ok közül:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        
+    <div class="demo-lekerdezes">
+
+      <div >
+
+...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -10,9 +10,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { LekerdezesService } from '../lekerdezes.service';
 import { RouterLink } from '@angular/router';
-
-
-
+import { MatDialog } from '@angular/material/dialog';
+import { DowloadModalComponent } from './dowload-modal/dowload-modal.component';
 
 @Component({
   selector: 'app-lekerdezes',
@@ -37,7 +36,8 @@ export class LekerdezesComponent {
   })
 
   constructor(
-    protected readonly lekerdezesService: LekerdezesService
+    protected readonly lekerdezesService: LekerdezesService,
+    public dialog: MatDialog
   ) { }
 
 
@@ -47,5 +47,9 @@ export class LekerdezesComponent {
     this.lekerdezesService.search(valasztottOrszag);
     
     this.newSearch.reset()
+  }
+
+  openDialog() {
+    this.dialog.open(DowloadModalComponent);
   }
 }
