@@ -2,8 +2,8 @@
   <nav>
     <p style="cursor: pointer;" (click)="openDialog()">Web-appon használt képek letöltése</p>
     <a href="https://hu.wikipedia.org/wiki/Covid19">Covid-19-ről általánosságban</a>
-    <a style="color: white;" routerLink="/login">Belépés</a>
-    <a style="color: white;" routerLink="/registration">Regisztráció</a>
+    <a style="color: rgb(0, 0, 0);" routerLink="/login">Belépés</a>
+    <a style="color: rgb(0, 0, 0);" routerLink="/registration">Regisztráció</a>
   </nav>
 
   <div class="container">
@@ -25,16 +25,16 @@
 
     <div class="demo-lekerdezes">
 
-      <div style="display: flex;">
-
-        <app-demo-lekerdezes />
+      <div >
 
         <div class="demo-lekerdezes-leiras">
           <p>Ez egy demo lekérdezési applikáció. <br>
             Jelenleg csak 3 lekérdezést tud végezni. <br> A lekérdezhető országok listája nem teljes, a tényleges tartalmat
             belépés után tudja használatba venni.</p>
         </div>
-  
+
+        <app-demo-lekerdezes />
+ 
       </div>
       <div class="demo-list">
         <app-list-demo />
