@@ -31,9 +31,10 @@
         .text {
             background: linear-gradient(to right, #ff0000, #01fc4c);
             -webkit-background-clip: text;
-            color: transparent; /* A szövegszín átlátszóvá válik */
+            color: transparent;
             width: 30%;
             text-align: center;
         }          
     }
+
 }
