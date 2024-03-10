@@ -9,24 +9,32 @@ import { Landing2Component } from './landing-page/landing2/landing2.component';
 export const routes: Routes = [
     {
         path:'',
-        component:Landing2Component
+        component:Landing2Component,
+        title:'Landing page'
+    },
+    {
+        path:'login',
+        component:LoginComponent,
+        title:'Login page'
+    },
+    {
+        path:'registration',
+        component:RegistrationComponent,
+        title:'Registration page'
     },
     {
         path:'home',
         canActivate:[authGuard],
-        component:HomeComponent
-    },
-    {
-        path:'login',
-        component:LoginComponent
-    },
-    {
-        path:'registration',
-        component:RegistrationComponent
+        //loadChildren : ()=> import ('./home/home.routes').then(m=>m.routes),
+        component:HomeComponent,
+        title:'Home page'
+
     },
     {
         path:'nevnap',
-        component:NevnapComponent
+        component:NevnapComponent,
+        title:'Nevnap page'
+
     },
 
 
