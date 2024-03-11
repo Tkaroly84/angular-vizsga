@@ -4,11 +4,16 @@ import { NevnapComponent } from './nevnap/nevnap.component';
 
 export const routes: Routes = [
     {
-        path:'',
-        component:HomeComponent
+        path: '',
+        component: HomeComponent,
+        title: 'Home page'
     },
     {
-        path:'nevnap',
-        component:NevnapComponent
+        path: 'nevnap',
+        component: NevnapComponent, 
+        title: 'Nevnap page'
+
     },
+
+
 ];
