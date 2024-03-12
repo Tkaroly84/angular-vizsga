@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -7,6 +7,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AuthService {
   private loggedInUserSubject = new BehaviorSubject<string>('');
+  bejelentkezettFelhasznalo = signal (false)
+
 
   get loggedInUser$(): Observable<string> {
     return this.loggedInUserSubject.asObservable();
@@ -22,10 +24,13 @@ export class AuthService {
   login(username: string, password: string): boolean {
     if (this.isAuthenticated(username, password)) {
       this.loggedInUserSubject.next(username);
+      console.log('A bejelentkezett felhasználó:', this.loggedInUserSubject);
+      this.bejelentkezettFelhasznalo.set(true);
       this.router.navigate(['/home']);
       return true;
     } else {
       console.log('Sikertelen bejelentkezés');
+      this.bejelentkezettFelhasznalo.set(false);
       return false;
     }
   }

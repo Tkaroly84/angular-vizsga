@@ -31,7 +31,6 @@ export class LoginComponent {
     password: ''
   };
 
-  isLoading = signal(false);
   loggedInUser: string = ''; 
 
   constructor(
