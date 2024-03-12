@@ -10,11 +10,12 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { RouterLink } from '@angular/router';
 import { LekerdezesService } from '../../home/lekerdezes.service';
 import { Country } from '../../models/country.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-demo-lekerdezes',
   standalone: true,
-  imports: [MatProgressSpinner, MatTabsModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatCardModule, MatButtonModule, ReactiveFormsModule, RouterLink],
+  imports: [MatProgressSpinner, MatTabsModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatCardModule, MatButtonModule, ReactiveFormsModule, RouterLink, CommonModule],
   templateUrl: './demo-lekerdezes.component.html',
   styleUrl: './demo-lekerdezes.component.scss'
 })
@@ -33,18 +34,19 @@ export class DemoLekerdezesComponent {
     country: new FormControl<string>('', [Validators.required]),
   })
 
+  isSearchCompleted: boolean = false;
+
 
   constructor(
     protected readonly lekerdezesService: LekerdezesService
   ) { }
 
   search() {
-    
-    const valasztottOrszag = this.newSearch.get('country')?.value ?? '';
-    this.lekerdezesService.search(valasztottOrszag);
-    
-    this.newSearch.reset()
+    if (!this.isSearchCompleted) {
+      const valasztottOrszag = this.newSearch.get('country')?.value ?? '';
+      this.lekerdezesService.search(valasztottOrszag)
+          this.isSearchCompleted = true;
+          this.newSearch.reset();
+        }
+    }
   }
-
-
-}

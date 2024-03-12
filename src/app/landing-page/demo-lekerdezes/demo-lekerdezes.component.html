@@ -2,17 +2,19 @@
   <label for="exampleFormControlSelect1">Országlista:</label>
   <select class="form-control" id="exampleFormControlSelect1" formControlName="country" required>
     @for (country of countries; track country) {
-    <option [value]="country.value">{{country.viewValue}}</option>
+      <option [value]="country.value">{{country.viewValue}}</option>
     }
   </select>
 
   <mat-card-actions>
     <button style="margin-top: 15px;" type="submit" mat-raised-button color="primary"
-      [disabled]="newSearch.invalid || this.lekerdezesService.isLoading()">
-      @if (this.lekerdezesService.isLoading()){
-      <mat-spinner color="primary" [diameter]="20" />
-      }@else {
-      Lekérdezés
-      }</button>
+      [disabled]="newSearch.invalid || this.lekerdezesService.isLoading() || isSearchCompleted">
+      <ng-container *ngIf="this.lekerdezesService.isLoading(); else contentTemplate">
+        <mat-spinner color="primary" [diameter]="20"></mat-spinner>
+      </ng-container>
+      <ng-template #contentTemplate>
+        {{ isSearchCompleted ? 'Lekérdezés kész' : 'Lekérdezés' }}
+      </ng-template>
+    </button>
   </mat-card-actions>
 </form>
